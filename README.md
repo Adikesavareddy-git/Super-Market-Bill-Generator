@@ -1,5 +1,6 @@
 Supermarket Billing Generator
 
+
 A console-based supermarket billing generator developed using Python.
 This application simulates a basic retail checkout process by allowing users to select grocery items, enter quantities, calculate totals, apply GST, and generate a formatted billing receipt.
 The project is intentionally focused on clean control flow, input validation, and core Python programming concepts, rather than graphical interfaces.
