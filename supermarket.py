@@ -1,72 +1,88 @@
 from datetime import datetime
 
-name = input("Enter your name:")
- 
-lists='''
-rice   Rs 20/kg
-sugar  Rs 30/kg
-salt   Rs 20/Kg
-oil    Rs 100/litre
-paneer Rs 110/kg
-maggi Rs 10/Each
-milk  Rs 70/litre
-Boost Rs 200/Kg
-Colagate Rs 85/Each'''
-print(lists)
+name = input("Enter your name: ")
 
-#declaration
-price=0
-pricelist=[]
-totalprice=0
-ilist=[]
-qlist=[]
-plist=[]
+items = {
+    "rice": 420.0,
+    "wheat flour": 250.0,
+    "sugar": 50.0,
+    "salt": 20.0,
+    "cooking oil": 160.0,
+    "tea powder": 180.0,
+    "coffee powder": 130.0,
+    "milk": 60.0,
+    "bread": 45.0,
+    "eggs": 90.0,
+    "butter": 250.0,
+    "cheese": 180.0,
+    "apple": 120.0,
+    "banana": 40.0,
+    "orange": 100.0,
+    "onion": 35.0,
+    "tomato": 30.0,
+    "potato": 25.0,
+    "green peas": 60.0,
+    "detergent": 150.0,
+    "dishwash liquid": 90.0,
+    "toothpaste": 80.0,
+    "shampoo": 120.0,
+    "soap": 140.0,
+    "chips": 30.0,
+    "biscuits": 25.0,
+    "cold drink": 70.0,
+    "water bottle": 20.0,
+    "noodles": 45.0,
+    "spices": 100.0
+}
 
-#rates for items
-items={'rice':20,
-       'sugar':30,
-    'salt':20,'oil':100,'paneer':110,
-    'maggi':10,'milk':70,'colgate':85,'boost':200}
-option=int(input("for list of items press1:"))
-if option ==1:
-    print(lists)
-for  i in range (len(items)):
-    inp1=int(input("if you want to buy press 1 or 2 for exit: "))
-    if inp1==2:
+print("\nAvailable Items:")
+for item, price in items.items():
+    print(f"{item.title()} : ₹{price}")
+
+cart = []
+total = 0
+
+while True:
+    item = input("\nEnter item name (or type 'exit'): ").lower()
+
+    if item == "exit":
         break
-    if inp1==1:
-        item=input("Enter your items:")
-        quantity = int(input("Enter quantity:"))
-        if item in items.keys():
-            price= quantity *items[item]
-            pricelist.append((item,quantity,items,price))
-            totalprice += price
-            ilist.append(item)
-            qlist.append(quantity)
-            plist.append(price)
-            gst=(totalprice*0.05)
-            finalamount =gst+totalprice
-        else:
-            print("Sorry you entered item is not available")
-    else:
-        print("you entered wrong option")
-    inp =input("Can I bill the items Yes or No:")
-    if inp =='yes':
-        pass
-        if finalamount!=0:
-            print(25*"=","Adi Supermarket",25*"=")
-            print(28*"=","KADAPA")
-            price("Name:",name,30*" ","Date:",datetime.now())
-            price(75*"-")
-            print("S.No",8*" ",'Item',8*" ",'Quantity',3*" ",'price')
-        
-            for i in range(len(pricelist)):
-                print(i,8*" ",8*" ",ilist[i],3*" ",qlist[i],plist[i])
-            print(75*"-")
-            print(50*" ",'Total Amount:','Rs',totalprice)
-            print("gst amount",50*" ",'Rs',gst)
-            print(75*"-")
-            print(50*" ",'finalAmount:','Rs',finalamount)
-            print(75*"-")
-            print(50*" ","Thank you Visit Again")
-            print(75*"-")
+
+    if item not in items:
+        print("❌ Item not available")
+        continue
+
+    try:
+        qty = int(input("Enter quantity: "))
+    except ValueError:
+        print("❌ Quantity must be a number")
+        continue
+
+    cost = qty * items[item]
+    total += cost
+    cart.append((item.title(), qty, cost))
+
+    print(f"✅ {item.title()} added — ₹{cost}")
+
+    more = input("Add more items? (yes/no): ").lower()
+    if more != "yes":
+        break
+
+gst = total * 0.05
+final = total + gst
+
+print("\n" + "="*25, "BILL", "="*25)
+print("Customer:", name)
+print("Date:", datetime.now())
+print("-"*60)
+print("Item\t\tQty\tPrice")
+
+for item, qty, price in cart:
+    print(f"{item}\t{qty}\t₹{price}")
+
+print("-"*60)
+print("Total:\t\t₹", total)
+print("GST (5%):\t₹", gst)
+print("Final Amount:\t₹", final)
+print("="*60)
+print("Thank you. Visit Again!")
