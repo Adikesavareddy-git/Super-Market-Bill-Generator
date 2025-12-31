@@ -1,45 +1,14 @@
-Enter your name: Reddy
 
-Available Grocery Items:
--------------------------
-Rice      - Rs 20/kg
-Sugar     - Rs 30/kg
-Salt      - Rs 20/kg
-Oil       - Rs 100/litre
-Paneer    - Rs 110/kg
-Maggi     - Rs 10/each
-Milk      - Rs 70/litre
-Boost     - Rs 200/kg
-Colgate   - Rs 85/each
-
-Press 1 to view item list: 1
-
-Press 1 to buy item or 2 to exit: 1
-Enter item name: rice
-Enter quantity: 2
-✅ Rice added to cart — ₹40
-
-Press 1 to buy item or 2 to exit: 1
-Enter item name: milk
-Enter quantity: 1
-✅ Milk added to cart — ₹70
-
-Press 1 to buy item or 2 to exit: 2
-
-======================================================================
-                          ADI SUPERMARKET                           
-======================================================================
-Customer Name: Reddy               Date: 03-11-2025 11:05:12
-----------------------------------------------------------------------
-S.No  Item           Quantity      Price (₹)
-----------------------------------------------------------------------
-1     Rice           2             40.00
-2     Milk           1             70.00
-----------------------------------------------------------------------
-Total Amount:                                     ₹    110.00
-GST (5%):                                         ₹      5.50
-----------------------------------------------------------------------
-Final Amount:                                    ₹    115.50
-======================================================================
-                     Thank You! Visit Again 😊                      
-======================================================================
+========================= BILL =========================
+Customer: Adi Kesava Redddy
+Date: 2025-12-31 12:30:15
+------------------------------------------------------------
+Item            Qty     Price
+Rice            2       ₹840.0
+Milk            3       ₹180.0
+------------------------------------------------------------
+Total:          ₹ 1020.0
+GST (5%):       ₹ 51.0
+Final Amount:   ₹ 1071.0
+================================================------------
+        Thank you. Visit Again!
